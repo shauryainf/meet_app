@@ -28,8 +28,8 @@ services:
       context: .
       dockerfile: Dockerfile.web
     restart: always
-    ports:
-      - "80:80"
+    expose:
+      - "80"
     depends_on:
       - backend
     environment:
