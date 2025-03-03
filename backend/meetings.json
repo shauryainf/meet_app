@@ -1,0 +1,47 @@
+{
+  "377852": {
+    "code": "377852",
+    "createdAt": 1740969211747,
+    "participants": [],
+    "messages": []
+  },
+  "417732": {
+    "code": "417732",
+    "createdAt": 1740969083519,
+    "participants": [],
+    "messages": [
+      {
+        "id": "1740969132686",
+        "senderId": "aiYIRcE2gpldorglAAAL",
+        "senderName": "yoyoyo",
+        "content": "hi",
+        "timestamp": 1740969132690
+      },
+      {
+        "id": "1740969143978",
+        "senderId": "2J9Tx7px-45fqDjZAAAJ",
+        "senderName": "yo",
+        "content": "bla",
+        "timestamp": 1740969143980
+      }
+    ]
+  },
+  "623612": {
+    "code": "623612",
+    "createdAt": 1740968835304,
+    "participants": [],
+    "messages": []
+  },
+  "709380": {
+    "code": "709380",
+    "createdAt": 1740969435979,
+    "participants": [],
+    "messages": []
+  },
+  "915284": {
+    "code": "915284",
+    "createdAt": 1740968614981,
+    "participants": [],
+    "messages": []
+  }
+}
