@@ -30,7 +30,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - MONGODB_URI=mongodb://root:password@mongodb:27017/videocall
+      - MONGODB_URI=mongodb://root:password@mongodb:27017/videocall?authSource=admin
     volumes:
       - backend_data:/app/data
     networks:
