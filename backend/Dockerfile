@@ -1,5 +1,8 @@
 FROM node:20-alpine
 
+# Install MongoDB client tools and curl for healthcheck
+RUN apk add --no-cache curl mongodb-tools
+
 WORKDIR /app
 
 # Copy package.json and package-lock.json
@@ -11,8 +14,8 @@ RUN npm install --production
 # Copy the rest of the application
 COPY . .
 
-# Create a directory for persistent data
-RUN mkdir -p /app/data
+# Create directory structure
+RUN mkdir -p /app/data /app/db
 
 # Expose the port the app runs on
 EXPOSE 3000

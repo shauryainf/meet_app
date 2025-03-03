@@ -1,6 +1,25 @@
 version: '3.8'
 
 services:
+  # MongoDB database
+  mongodb:
+    image: mongo:6.0
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=videocall
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app_network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet mongodb://root:password@localhost:27017/admin
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
   # Backend service (Node.js)
   backend:
     build:
@@ -11,6 +30,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - MONGODB_URI=mongodb://root:password@mongodb:27017/videocall
     volumes:
       - backend_data:/app/data
     networks:
@@ -21,6 +41,9 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+    depends_on:
+      mongodb:
+        condition: service_healthy
 
   # Frontend service (Flutter Web)
   frontend:
@@ -42,4 +65,5 @@ networks:
     driver: bridge
 
 volumes:
-  backend_data: 
+  backend_data:
+  mongodb_data: 
